@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>CDIAct - Version démo</title>
+    <base target="_blank">
+    <link rel="shortcut icon" href="https://emi.re/CDIAct-V2/img/icn/favicon.png">
+    <meta name="title" content="CDIAct - Version démo">
+    <meta name="Description"
+        content="Application de gestion des présences et d'exportation de statistiques pour Centre de Documentation et d'Information (CDI). Version démo.">
+    <meta name="Keywords"
+        content="CDI, docs, web, enseignement, outils, professeur-documentaliste, professeur documentaliste, statistiques">
+    <meta name="geo.placename" content="Saint Denis, île de la Réunion,  France">
+    <meta name="author" content="Denis Weiss">
+
+    <meta property="og:title" content="CDIAct - version démo">
+    <meta property="og:description"
+        content="Application de gestion des présences et d'exportation de statistiques pour Centre de Documentation et d'Information (CDI). Version démo">
+    <meta property="og:url" content="https://emi.re/CDIAct-V2/index-demo.html">
+    <meta property="og:type" content="website">
+    <meta property="og:article:author" content="Denis Weiss">
+    <meta property="og:article:tag"
+        content="CDI, docs, web, enseignement, outils, professeur-documentaliste, professeur documentaliste, statistiques">
+    <meta property="og:locale" content="fr_fr">
+    <meta property="og:image" content="img/ogIll.png">
+
+    <meta name="twitter:card" content=”summary_large_image”>
+    <meta name="twitter:site" content="https://emi.re/CDIAct-V2/index-demo.html">
+    <meta name="twitter:creator" content="Denis Weiss">
+    <meta name="twitter:title" content="CDIAct - Application de gestion des présences">
+    <meta name="twitter:description"
+        content="Application de gestion des présences et d'exportation de statistiques pour Centre de Documentation et d'Information (CDI)">
+    <meta name="twitter:image" content="https://emi.re/CDIAct-V2/img/ogIll.png">
+
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+
+    <script src="./js/jquery.min.js"></script>
+
+    <style>
+        .lisezMoi {
+            margin: 20em 1em;
+        }
+
+        .section {
+            padding-top: 5em;
+        }
+
+        .d-flex {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btnTempsD {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            vertical-align: middle;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            border: 1px solid #0dcaf0;
+            border-radius: 0.5rem;
+            text-transform: uppercase;
+            color: #00d9ff;
+            width: 72px;
+            height: 72px;
+            margin: .5em;
+            font-size: .4em;
+            transition: 0.3s ease;
+        }
+
+        .btnTempsD:hover {
+            border: 1px solid #0090ad;
+        }
+
+        .imgIll {
+            width: 100%;
+            height: auto;
+            background-size: cover;
+            border-radius: 0.5em;
+            padding-bottom: .5em;
+        }
+
+
+        .btnLisezMoi {
+            min-width: 200px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 1rem;
+            border: none;
+            background: #00398e;
+            border-radius: 5px;
+            transition: 0.2s ease-in;
+        }
+
+        .btnLisezMoi:hover {
+            color: #81b4ff;
+            opacity: .6;
+            cursor: pointer;
+        }
+
+        .btnLisezMoi img {
+            margin: .5em;
+        }
+
+        .btnLisezMoi>span {
+            font-size: 1.8em;
+            text-transform: uppercase;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 700;
+            margin: 0 1em;
+        }
+
+        @media (min-width: 481px) {
+            .btnTempsD {
+                font-size: .6em;
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .btnTempsD {
+                font-size: .8em;
+                width: 148px;
+                height: 148px;
+                margin: 1em;
+            }
+        }
+
+        @media (min-width: 960px) {
+            .btnTempsD {
+                font-size: 1em;
+                width: 172px;
+                height: 172px;
+                margin: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="text-orange">CDIAct -</span>outil de gestion des présences</h1>
+            <div class="sousTitre" id="titre">[établissement]</div>
+        </header>
+
+        <div class="section text-center">
+            <div id="inscA">
+                <h2 class="mb-3">Démo</h2>
+                <h3>Veuillez vous inscrire&nbsp;!</h3>
+
+                <div id="hms" class="horloge"></div>
+                <form class="search-form">
+                    <input type="text" class="search" placeholder="nom...">
+                    <ul class="suggestions"></ul>
+                </form>
+                <div class="explication">saisir les premières lettres de votre nom, puis sélectionnez-le…</div>
+
+
+                <div class="lisezMoi">
+                    <p>CDIACt est un module de gestion des présences au CDI qui ne nécessite ni serveur, ni connexion
+                        Internet. Seul un navigateur <strong>à jour</strong> est requis.<br>Typiquement, il
+                        s'intalle sur un
+                        vieux poste informatique réformé et dédié.</p>
+                    <p>CDIAct est gratuit, sans pub (CC BY-NC-ND), mais aussi sous votre entière responsabilité.</p>
+                    <p> Comment télécharger, personnaliser, utiliser et installer CDIAct <strong>UN</strong>
+                        click&nbsp;?</p>
+                    <p>Cliquez sur le bouton ci-dessous pour le savoir</p>
+                    <div class="space-20"></div>
+                    <div class="d-flex ">
+                        <a href="gestion/lisez-moi.html">
+                            <div class="btnLisezMoi">
+                                <img src="img/info.png" alt="bouton voir pleine page" class="ml-2">
+                                <span>en savoir plus sur CDIAct</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="inscB">
+                <h2 class="text-center white-text mb-5">Sélectionnez la durée</h2>
+
+                <div class="selTemps">
+                    <div class="btnTempsD" id="et01"
+                        data-tooltip="entrée/sortie du CDI, par exemple pour emprunter un document" tool-pos="top">
+                        <img src="img/icn/illTps1.png" alt="passage éclair" class="imgIll">
+                        <div id="S1">passage éclair</div>
+                    </div>
+                    <div class="btnTempsD w-90" id="et02"
+                        data-tooltip="entre deux cours, le plus souvent 5 à 10 minutes" tool-pos="top"><img
+                            src="img/icn/illTps2.png" alt="interclasse" class="imgIll">
+                        <div id="S2">interclasse</div>
+                    </div>
+                    <div class="btnTempsD w-90" id="et03" data-tooltip="le temps de la récréation, 10 à 15 minutes"
+                        tool-pos="top"><img src="img/icn/illTps3.png" alt="récréation" class="imgIll">
+                        <div id="S3">récréation</div>
+                    </div>
+                    <div class="btnTempsD w-90" id="et04" data-tooltip="entre 15 et 54 minutes" tool-pos="top"><img
+                            src="img/icn/illTps4.png" alt="moins d'une heure" class="imgIll">
+                        <div id="S4">moins d'un heure</div>
+                    </div>
+                </div>
+
+                <div class="space-20"></div>
+
+                <div class="selTemps">
+                    <div class="btnTempsD" id="et05" data-tooltip="qui fait généralement 55 minutes 👀 " tool-pos="top">
+                        <img src="img/icn/illTps5.png" alt="une heure" class="imgIll">
+                        <div id="S5">une heure </div>
+                    </div>
+                    <div class="btnTempsD" id="et06"
+                        data-tooltip="équivalent de deux heures de cours, interclasse ou récréation comprise"
+                        tool-pos="top"><img src="img/icn/illTps6.png" alt="deux heures" class="imgIll">
+                        <div id="S6">deux heures</div>
+                    </div>
+                    <div class="btnTempsD" id="et07"
+                        data-tooltip="équivalent de trois heures de cours, interclasse ou récréation comprise"
+                        tool-pos="top"><img src="img/icn/illTps7.png" alt="trois heures" class="imgIll">
+                        <div id="S7">trois heures</div>
+                    </div>
+                    <div class="btnTempsD" id="et08" data-tooltip="🔅" tool-pos="top"><img src="img/icn/illTps8.png"
+                            alt="+ de 3 heures" class="imgIll">
+                        <div id="S8">+ de trois heures</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="inscC">
+                <button type="button" class="btn-enr" id="valide">valider</button>
+            </div>
+
+            <div id="confirme" class="debug"></div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <!--  <div><a href="gestion/presents.html" target="_blank" class="btnPresents">présents</a></div>
+       -->
+        <div class="space-20"></div>
+        <div class="text-center">Pour plus d'information et configurer votre version cliquez <a
+                href="https://emi.re/CDIAct-V2/gestion/lisez-moi.html">ici</a>
+        </div>
+
+        <!--         <div class="text-center">
+            <button class="btnDYS">DYS</button>
+        </div> -->
+        <div class="space-20"></div>
+        <hr class="hr-light">
+        <div class="text-center">
+            Denis Weiss, février 2023. Distribué selon les termes de la licence Creative
+            Commons. <br>Attribution - Pas d’utilisation commerciale - Partage dans les mêmes conditions 4.0
+            International.<br>
+            <a href="https://emi.re/contact.html" target="_blank">Contact</a>
+        </div>
+    </footer>
+
+    <script src="./js/index-demo.js"></script>
+
+</body>
+
+</html>

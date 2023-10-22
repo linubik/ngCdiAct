@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>CDIAct - Statistiques de présence</title>
+
+    <meta property="og:title" content="CDIAct - Statistiques de présence">
+    <meta property="og:url" content="index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:description"
+        content="Appli de gestion des présences et d'exportation de statistiques pour Centre de Documentation et d'Information (CDI)">
+    <meta property="og:article:author" content="Denis Weiss">
+    <meta property="og:locale" content="fr_fr">
+    <meta property="og:image" content="img/front/cartoon.png">
+    <meta property="og:article:tag" content="Parcours EMI">
+    <meta property="og:image" content="./img/icn/favicon.png">
+    <meta name="author" content="Denis Weiss">
+    <meta name="geo.placename" content="Saint Denis, île de la Réunion, France">
+
+    <meta name="twitter:card" content=”summary_large_image”>
+    <meta name="twitter:site" content="https://emi.re/CDIAct-V2/index-demo.html">
+    <meta name="twitter:creator" content="Denis Weiss">
+    <meta name="twitter:title" content="CDIAct - Application de gestion des présences">
+    <meta name="twitter:description"
+        content="Application de gestion des présences et d'exportation de statistiques pour Centre de Documentation et d'Information (CDI)">
+    <meta name="twitter:image" content="https://emi.re/CDIAct-V2/img/ogIll.png">
+
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <script src="./js/jquery.min.js"></script>
+    <style>
+        .section {
+            padding-top: 8em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="text-orange">CDIAct -</span>outil de gestion des présences</h1>
+            <div class="sousTitre" id="titre">[établissement]</div>
+        </header>
+
+        <div class="section text-center">
+            <div id="inscA">
+                <h2>Veuillez vous inscrire&nbsp;!</h2>
+
+                <div class="space-20"></div>
+
+                <div id="hms" class="horloge"></div>
+
+                <form class="search-form">
+                    <input type="text" class="search" placeholder="nom...">
+                    <ul class="suggestions"></ul>
+                </form>
+
+                <div class="explication">saisir les premières lettres de votre nom, puis sélectionnez-le…</div>
+            </div>
+
+
+            <div id="inscB">
+                <h2 class="text-center white-text mb-5">Sélectionnez la durée</h2>
+
+                <div class="selTemps">
+                    <div class="btnTemps" id="et01"
+                        data-tooltip="entrée/sortie du CDI, par exemple pour emprunter un document" tool-pos="top">
+                        <img src="img/icn/storm.png" alt="passage éclair" class="imgIll">
+                        <div id="S1">passage éclair</div>
+                    </div>
+                    <div class="btnTemps w-90" id="et02" data-tooltip="entre deux cours, le plus souvent 5 à 10 minutes"
+                        tool-pos="top"><img src="img/icn/inter.png" alt="interclasse" class="imgIll">
+                        <div id="S2">interclasse</div>
+                    </div>
+                    <div class="btnTemps w-90" id="et03" data-tooltip="le temps de la récréation, 10 à 15 minutes"
+                        tool-pos="top"><img src="img/icn/break.png" alt="récréation" class="imgIll">
+                        <div id="S3">récréation</div>
+                    </div>
+                    <div class="btnTemps w-90" id="et04" data-tooltip="entre 15 et 54 minutes" tool-pos="top"><img
+                            src="img/icn/snail.png" alt="moins d'une heure" class="imgIll">
+                        <div id="S4">moins d'un heure</div>
+                    </div>
+                </div>
+
+                <div class="space-20"></div>
+
+                <div class="selTemps">
+                    <div class="btnTemps" id="et05" data-tooltip="qui fait généralement 55 minutes 👀 " tool-pos="top">
+                        <img src="img/icn/clock_1.png" alt="une heure" class="imgIll">
+                        <div id="S5">une heure </div>
+                    </div>
+                    <div class="btnTemps" id="et06"
+                        data-tooltip="équivalent de deux heures de cours, interclasse ou récréation comprise"
+                        tool-pos="top"><img src="img/icn/clock_2.png" alt="deux heures" class="imgIll">
+                        <div id="S6">deux heures</div>
+                    </div>
+                    <div class="btnTemps" id="et07"
+                        data-tooltip="équivalent de trois heures de cours, interclasse ou récréation comprise"
+                        tool-pos="top"><img src="img/icn/clock_3.png" alt="trois heures" class="imgIll">
+                        <div id="S7">trois heures</div>
+                    </div>
+                    <div class="btnTemps" id="et08" data-tooltip="🔅" tool-pos="top"><img src="img/icn/clock_Plus.png"
+                            alt="+ de 3 heures" class="imgIll">
+                        <div id="S8">+ de trois heures</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="inscC">
+                <button type="button" class="btn-enr" id="valide">valider</button>
+            </div>
+
+            <div id="confirme" class="debug"></div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div><a href="gestion/presents.html" target="_blank" class="btnPresents">présents</a></div>
+        <div class="space-20"></div>
+        <div class="text-center">Pour plus d'information et configurer votre version cliquez <a
+                href="https://emi.re/CDIAct-V2/gestion/lisez-moi.html">ici</a>
+        </div>
+
+        <!--         <div class="text-center">
+            <button class="btnDYS">DYS</button>
+        </div> -->
+        <div class="space-20"></div>
+        <hr class="hr-light">
+        <div class="text-center">
+            Denis Weiss, février 2023. Distribué selon les termes de la licence Creative
+            Commons. <br>Attribution - Pas d’utilisation commerciale - Partage dans les mêmes conditions 4.0
+            International.<br>
+            <a href="https://emi.re/contact.html" target="_blank">Contact</a>
+        </div>
+    </footer>
+
+    <script src="./js/index.js"></script>
+
+</body>
+
+</html>
