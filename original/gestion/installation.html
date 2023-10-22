@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>CDIAct - Configuration, installation, gestion&nbsp;!</title>
+    <base target="_blank">
+    <link rel="shortcut icon" href="./../img/icn/favicon.png">
+    <meta name="title" content="CDIAct - Configuration, installation, gestion&nbsp;!">
+    <meta name="Description"
+        content="Application de gestion des présences et d'exportation de statistiques pour Centre de Documentation et d'Information (CDI). Configuration, installation, gestion.">
+    <meta name="Keywords"
+        content="CDI, docs, web, enseignement, outils, professeur-documentaliste, professeur documentaliste, statistiques">
+    <meta name="geo.placename" content="Saint Denis, île de la Réunion,  France">
+    <meta name="author" content="Denis Weiss">
+
+    <meta property="og:title" content="CDIAct - Configuration, installation, gestion&nbsp;!">
+    <meta property="og:description"
+        content="Application de gestion des présences et d'exportation de statistiques pour Centre de Documentation et d'Information (CDI). Configuration, installation, gestion.">
+    <meta property="og:url" content="https://emi.re/CDIAct-V2/gestion/installation.html">
+    <meta property="og:type" content="website">
+
+    <meta property="og:article:author" content="Denis Weiss">
+    <meta property="og:article:tag"
+        content="CDI, docs, web, enseignement, outils, professeur-documentaliste, professeur documentaliste, statistiques">
+    <meta property="og:locale" content="fr_fr">
+    <meta property="og:image" content="img/ogIll.png">
+    <link href="./../css/modale.css" rel="stylesheet" type="text/css">
+    <link href="./../css/styleInst.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="container" id="topCont">
+        <header>
+            <h1><span class="text-orange">CDIAct -</span> Configuration, installation, gestion</h1>
+        </header>
+
+        <div class="space-50"></div>
+
+        <div class="chemin" id="cheminFer">
+            <img src="../img/01.png" alt="chiffre 1" id="chem1">
+            <img src="../img/02.png" alt="chiffre 2" class="opa-30" id="chem2">
+            <img src="../img/03.png" alt="chiffre 3" class="opa-30" id="chem3">
+            <img src="../img/04.png" alt="chiffre 4" class="opa-30" id="chem4">
+            <img src="../img/05.png" alt="chiffre 5" class="opa-30" id="chem5">
+        </div>
+
+        <div class="space-100"></div>
+
+        <!-- 1. Téléchargement -->
+        <section class="section view-el animated fadeIn" id="sect01">
+            <h3><span class="text-blanc">1.</span> Téléchargement</h3>
+
+            <div class="space-30"></div>
+
+            <div class="mediaCard">
+                <div class="ratio ratio-16x9">
+                    <video controls>
+                        <source src="../videos/CDIACT-load.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="space-30"></div>
+
+            <div class="btnLoad">
+                <a href="https://emi.re/CDIAct-V2/CDIAct-V2.7z" target="_blank">
+                    télécharger CDIAct
+                </a>
+            </div>
+
+            <div class="space-50"></div>
+
+            <p>Extraire (décompressez) le fichier CDIAct.7z une fois téléchargé.</p>
+            <div class="space-20"></div>
+            <img src="./../img/7zipExtraire.jpg" alt="Exraire 7zip" class="img-thumbnail w-60 center-block">
+            <div class="space-100"></div>
+
+            <div class="bord-bleu p-1">
+                <p> <a href="https://emi.re/CDIAct-V2/CDIAct-V2.7z" target="_blank"><img src="./../img/7zip.jpg"
+                            alt="7zip" class="float-left img-thumbnail w-30 m-2"></a>CDIAct est proposé en un dossier
+                    compressé au
+                    format "zip". Si vous ne disposez pas d'un logiciel de décompression de ce format, vous pouvez
+                    télécharger
+                    <strong><a href="https://www.7-zip.fr/" target="_blank">7-ZIP ici</a></strong>.
+                </p>
+                <p>7-Zip est un logiciel open source. La plupart du code est sous licence GNU LGPL. 7-Zip fonctionne
+                    sous
+                    Windows
+                    10 / 8 / 7 / Vista / XP / 2019 / 2016 / 2012 / 2008 / 2003 / 2000.</p>
+                <div class="space-30"></div>
+
+            </div>
+            <div class="space-50"></div>
+
+            <div class="btnValide" id="btnValide01">
+                Valider cette étape
+            </div>
+            <div class="space-30"></div>
+        </section>
+
+        <!-- 2. Nom et mot de passe -->
+        <section class="section view-el animated fadeIn" id="sect02">
+            <div class="encart">
+                <h3><span class="mBad">2.</span> Configurez CDIAct avec vos données</h3>
+
+                <div class="space-20"></div>
+                <form class="configuration">
+                    <div class="mb-5">
+                        <label for="eName" class="form-label">Nom de l'établissement</label>
+                        <input type="text" class="form-control" id="eName" value="nom de votre établissement"
+                            onfocus="this.value='' " required>
+                    </div>
+
+                    <div class="space-30"></div>
+                    <label for="ePass" class="form-label text-success">Mot de passe<sup>*</sup></label>
+                    <input type="password" class="form-control" id="ePass" onfocus="this.value='' " required>
+
+                    <div class="space-50"></div>
+
+                    <div class="exp">
+                        <sup>*</sup>La partie gestion (installation, sauvegardes, archives
+                        des présents, statistiques) n'est accessible que sur
+                        authentification préalable. Le mot de passe donne droit à cet
+                        accès. Seul le "hash" de ce mot de passe est stocké et donc seul
+                        vous le connaissez.
+                    </div>
+                </form>
+                <div class="space-30"></div>
+                <div class="btnValide" id="btnValide02">
+                    Valider la saisie
+                </div>
+                <div class="space-20"></div>
+            </div>
+        </section>
+
+        <!-- 3. Exports. Choix -->
+        <section class="section view-el animated fadeIn" id="sect03">
+            <div class="encart">
+                <h3><span class="mBad">3.</span> Exportation du fichier des élèves</h3>
+                <p>
+                    Le fichier des emprunteurs utilisé est un simple fichier texte, au
+                    format csv.
+                </p>
+                <p>
+                    ll ne contient que 3 champs, le <strong>nom</strong> (et le prénom), la <strong>classe</strong> et
+                    le
+                    <strong>numéro d'emprunteur</strong>, séparés par des points virgules
+                    (<strong>;</strong>) et terminé par un "retour chariot".
+                </p>
+                <div class="space-20"></div>
+
+                <div class="space-50"></div>
+                <div class="fs-3 text-center">
+                    2 méthodes pour établir le fichier des élèves
+                </div>
+                <div class="space-30"></div>
+                <div class="fs-4 text-orange text-center text-uppercase">
+                    Sélectionnez la vôtre
+                </div>
+                <div class="space-30"></div>
+                <div class="flex-export">
+                    <button type="submit" id="exportMan" class="btnExport btnManuel">
+                        <span class="text-blanc">Saisie</span> manuelle
+                    </button>
+                    <button type="submit" id="exportBCDI" class="btnExport btnBCDI">
+                        <span class="text-blanc">Export</span> avec BCDI
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3A. Exportation manuelle -->
+        <section id="exMan" class="section">
+            <h3>Exportation "manuelle"</h3>
+            <p>
+                C'est la méthode pour ceux qui n'auraient pas BCDI ou voudraient tout
+                gérer à la main.
+            </p>
+            <p>
+                Avec le bloc-notes de Windows ou, beaucoup mieux, un éditeur libre de
+                type Notepad++, que vous pouvez télécharger
+                <a href="https://notepad-plus-plus.org/downloads/" class="fs-1">ici</a>, ouvrez le fichier
+                <strong>"cartes.csv"</strong> que vous trouvez
+                dans le répertoire "sources".
+            </p>
+            <p>
+                La première ligne indique le nom des champs (sans espace, en majuscules)&nbsp;:
+            </p>
+            <p class="fs-2 bord">em;cl;id</p>
+            <p>
+                <strong>Ne modifiez pas cette première ligne, vos données commencent à la
+                    deuxième.</strong>
+            </p>
+            <p>
+                Ajoutez les valeurs des champs (NOM prénom;classe;numéro
+                d'emprunteur), elles-aussi séparées par des points virgules (<span class="strong orange-text">;</span>).
+            </p>
+            <div class="space-20"></div>
+            <img src="./../img/fichierscvtype.png" alt="fichier csv type" class="img-thumbnail center-block w-80">
+            <div class="space-20"></div>
+            <p>
+                Le champ <strong>"em"</strong> correspond à l'emprunteur,
+                <strong>"cl"</strong> pour la classe et <strong>"id"</strong> pour le
+                numéro unique de l'emprunteur. Commencez par exemple par 1 puis
+                incrémentez la valeur.
+            </p>
+
+            <div class="space-30"></div>
+
+            <img src="./../img/fichierscvnotepad.png" alt="fichier csv type avec Notepad++"
+                class="img-thumbnail center-block w-80">
+            <div class="space-30"></div>
+            <p>
+                N'oubliez pas d'enregistrer ce fichier une fois vos saisies terminées.
+            </p>
+
+            <div class="space-30"></div>
+            <div class="btnValide" id="btnValide03A">
+                Valider cette étape
+            </div>
+            <div class="space-30"></div>
+        </section>
+
+        <!-- 3B. Nom et mot de passe -->
+        <section id="exBCDI" class="section">
+            <h3>Avec BCDI</h3>
+            <div class="grid-2">
+                <div class="text-justify">
+                    <p>Schématiquement, il s'agit de chercher tous les emprunteurs et de les exporter dans un fichier
+                        nommé
+                        <strong>"cartes.csv"</strong>, nom obligatoire, via un modèle de rapport,
+                        <strong>"empClassNum.fr3"</strong> qui se trouve dans le répertoire
+                        <strong>"sources"</strong>.
+                    </p>
+                    <p>La procédure est détaillée dans la vidéo ci-contre ou en mode texte ci-dessous.</p>
+                </div>
+
+                <div class="mediaCard">
+                    <div class="ratio ratio-16x9">
+                        <video controls>
+                            <source src="../videos/CDIACT-export-BCDI.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="space-50"></div>
+
+            <p>
+                <span class="badge bg-vert text-blanc">1</span> Exporter le fichier des
+                emprunteurs
+            </p>
+
+            <p>
+                Cherchez les emprunteurs que vous voulez exporter. Le plus souvent ce
+                sont tous vos emprunteurs.
+            </p>
+            <div class="space-20"></div>
+            <p>Pour cela, faire une recherche dans</p>
+            <div class="encartProcess">
+                <span class="text-orange">Recherche</span> &#8594;
+                <span class="text-orange">Recherche gestionnaire</span> &#8594;
+                <span class="text-orange">Emprunteurs</span>
+                <i class="text-orange"></i> &#8594;
+                <span class="text-orange">tout</span>
+            </div>
+            <div class="space-20"></div>
+            <p>
+                <img src="./../img/rechGest.png" alt="rechercher gestionnaire" class="img-thumbnail w-60">
+            </p>
+            <div class="space-50"></div>
+            <p><span class="badge bgJaune text-noir">2</span> Lancez la recherche</p>
+
+            <p>
+                <img src="./../img/bcdiLance.jpg" alt="Lancer rechercher gestionnaire empruteurs"
+                    class="img-thumbnail w-60">
+            </p>
+
+            <div class="space-50"></div>
+            <p><span class="badge bg-bleu text-blanc">3</span> Sélectionnez le format</p>
+
+            <p>
+                Dans les formats de sortie, sélectionnez 'Rapports' puis le format de
+                sortie <strong>"empClassNum.fr3"</strong> qui se trouve dans le
+                répertoire "sources" de CDIAct), cochez "Résultats sur &#8594; Disque".
+            </p>
+            <div class="space-20"></div>
+            <p>
+                <img src="./../img/bcdi-etape-01.jpg" alt="export BCDI4" class="img-thumbnail w-60">
+            </p>
+            <div class="space-50"></div>
+            <p><span class="badge bg-rouge text-blanc">4</span> Voir</p>
+            <p>Cliquez sur le bouton "voir" puis cochez "Format MsWord"</p>
+            <div class="space-20"></div>
+            <img src="./../img/bcdi-etape-02.png" alt="export format MSword" class="img-thumbnail w-60">
+            <p>Décochez "Exporter les ressources"</p>
+            <div class="space-50"></div>
+            <p><span class="badge bg-blanc text-noir">5</span> Enregistrez</p>
+            <p>Enregistrez avec le nom
+                "cartes.csv" (Attention&nbsp;! <strong>Ce nom est impératif, ne pas le modifier</strong>).
+            </p>
+            <div class="space-20"></div>
+            <img src="./../img/bcdi-etape-03.png" alt="export format MSword" class="img-thumbnail w-60">
+            <div class="space-20"></div>
+
+            <div class="space-20"></div>
+            <p>
+                <img src="./../img/bcdi-etape-04.png" alt="exporter les ressource" class="img-thumbnail w-60">
+            </p>
+            <div class="space-20"></div>
+            <p>L'exportation de vos emprunteurs est terminée. Un message vous informe du bon déroulement.</p>
+            <div class="space-20"></div>
+            <img src="./../img/bcdi-etape-05.jpg" alt="export format MSword" class="img-thumbnail w-60">
+            <div class="space-50"></div>
+            <div class="encart">
+                <p>Si vous constatez des problèmes d'accentuation de votre fichier, le plus simple est de l'ouvrir avec
+                    Notepad++ et de le convertir en utf-8.</p>
+            </div>
+            <p>Pour cela ouvez le fichier cartes.csv avec NotePad++, cliquez sur "Encodage" puis sur "Convertir en
+                UTF-8".<br>
+                Enregistrez</p>
+            <img src="./../img/bcdi-note.jpg" alt="export format MSword" class="img-thumbnail w-40 center-block">
+            <div class="space-30"></div>
+            <div class="btnValide" id="btnValide03B">
+                Valider cette étape
+            </div>
+            <div class="space-30"></div>
+        </section>
+
+
+
+        <!-- 4. Génère le fichier -->
+        <section class="section view-el animated fadeIn" id="sect04">
+            <h3><span class="mBad">4.</span> Fabrication de votre configuration</h3>
+            <p>
+                Cette étape va consister à rassembler vos données, emprunteurs, mot de passe 'hashé' et nom
+                d'établissement, et
+                à <strong>générer un fichier de gestion au nom
+                    unique (Exemple&nbsp;: yOH4bP20.html).</strong></p>
+            <p>Ce fichier va vous permettre à la fois d'installer votre
+                configuration
+                en "UN" clic, mais aussi d'accéder aux statistiques, à la liste des présents, de faire une sauvegarde ou
+                une
+                restauration
+                etc.
+            </p>
+            <p>Bref, de gérer votre application.</p>
+            <p>
+                Pour cela, cliquez sur le bouton ci-dessous pour sélectionner et
+                télécharger le fichier 'cartes.css' que vous avez exporté (avec BCDI) ou saisi et
+                enregistré à l'étape précédente.
+            </p>
+            <div class="space-50"></div>
+            <div class="text-center">
+                <input type="file" id="file-upload" accept=".csv" hidden>
+                <label for="file-upload" class="btnLoad">🔁 télécharger cartes.csv</label>
+            </div>
+            <div class="space-50"></div>
+            <div id="nom-select" class="text-center"></div>
+
+            <div class="space-50"></div>
+            <div class="space-20"></div>
+
+            <textarea id="verif-cartes" class="verif-cartes"></textarea>
+            <div class="space-50"></div>
+
+            <div class="btnValide" id="btnValide04">
+                Valider la configuration
+            </div>
+
+            <div class="space-30"></div>
+        </section>
+
+
+        <!-- 5. Assemblage et info -->
+        <section class="section view-el animated fadeIn" id="sect05">
+            <h3><span class="mBad">5.</span> Fin de la configuration</h3>
+
+            <h2 class="text-orange">Fichier généré</h2>
+            <p class="fs-2Bis">
+                En fonction de votre navigateur, une fenêtre vous informe au bout de quelques secondes que votre fichier
+                unique (par exemple '1E51QVKV.html') a été créé et enregistré sur votre disque, ou que vous pouvez
+                l’enregistrer ou vosu souhaitez.
+            </p>
+            <p>Ce fichier devra être enregistré dans le dossier gestion de votre configuration. C'est ce fichier qui
+                vosu permet de faire l'ensemble de la gestion de votre application CDIAct personnalisée.</p>
+            <div class="space-20"></div>
+            <img src="../img/enr-sous.jpg" alt="enregistrer sous" class="img-thumbnail w-100">
+            <div class="space-50"></div>
+
+            <p>Si pour une raison quelconque, ce n'était pas le cas (par exemple en
+                raison
+                de
+                règles de sécurité propres à votre installation), vous pouvez voir et enregistrer votre configuration à
+                cette
+                adresse. Enregistrez la page dans votre répertoire gestion.</p>
+            <p><strong>Attention&nbsp;!</strong> Page temporaire.</p>
+            <div class="space-20"></div>
+            <div class="bord-jaune fs-2Bis p-1" id="lienUnique"></div>
+            <div class="space-50"></div>
+
+
+            <h2 class="text-orange">Ensuite, vous n'avez plus qu'à…</h2>
+            <p class="fs-2Bis "><span class="badge bg-grisVert text-blanc">1</span> Copier-coller ce fichier dans le
+                répertoire
+                <strong>'gestion'</strong> de votre application.
+            </p>
+            <div class="space-50"></div>
+            <p>
+                <img src="./../img/export02.jpg" alt="gestion étape 01" class="img-thumbnail center-block w-60">
+            </p>
+            <div class="space-50"></div>
+            <p class="fs-2Bis"><span class="badge bg-bleu text-blanc">2</span> Copier-coller CDIAct sur la
+                machine de production (cela fonctionne également sur une clé USB ou une tablette).
+            </p>
+
+            <div class="space-50"></div>
+
+            <p class="fs-2Bis"><span class="badge bgJaune text-noir">3</span>
+                Ouvrir le fichier
+                <strong>au nom unique, par exemple '1E51QVKV.html'</strong> du répertoire gestion avec un navigateur.
+            </p>
+
+            <div class="space-50"></div>
+
+            <p class="fs-2Bis"><span class="badge bg-vert text-blanc">4</span> Saisir votre mot de passe.</p>
+            <img src="./../img/saisirPW.jpg" alt="gestion étape saisir mot de passe"
+                class="img-thumbnail w-60 center-block">
+
+            <div class="space-50"></div>
+
+            <p class="fs-2Bis"><span class="badge bg-blanc text-noir">5</span> Cliquer sur le bouton 'installer la
+                configuration'</p>
+
+            <div class="space-50"></div>
+
+            <div class="encart">
+                <div class="fs-6 text-center">Fin de l'installation&nbsp;❗️</div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <hr class="hr-light">
+        Denis Weiss, février 2023. Distribué selon les termes de la licence Creative
+        Commons.<br> Attribution - Pas d’utilisation commerciale - Partage dans les mêmes conditions 4.0
+        International.<br>
+        <a href="https://emi.re/contact.html" target="_blank">Contact</a>
+    </footer>
+
+    <script src="./../js/jquery.min.js"></script>
+    <script src="./../js/interObs.js"></script>
+    <script src="./../js/md5.min.js"></script>
+    <script src="./../js/instal.js"></script>
+
+    <script>
+              /* $('#sect01').hide()
+                $('#sect02').hide()
+                $('#sect03').hide()
+                $('#sect04').show() */
+
+    </script>
+</body>
+
+</html>
