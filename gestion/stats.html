@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>CDIAct - Statistiques</title>
+    <base target="_blank">
+    <link rel="shortcut icon" href="./../img/icn/favicon.png">
+    <meta name="title" content="CDIAct - Statistiques">
+    <meta name="Description"
+        content="Application de gestion des présences et d'exportation de statistiques pour Centre de Documentation et d'Information (CDI). Statistiques.">
+    <meta name="Keywords"
+        content="CDI, docs, web, enseignement, outils, professeur-documentaliste, professeur documentaliste, statistiques">
+    <meta name="geo.placename" content="Saint Denis, île de la Réunion,  France">
+    <meta name="author" content="Denis Weiss">
+
+    <meta property="og:title" content="CDIAct - Statistiques">
+    <meta property="og:description"
+        content="Application de gestion des présences et d'exportation de statistiques pour Centre de Documentation et d'Information (CDI). Statistiques.">
+    <meta property="og:url" content="https://emi.re/CDIAct-V2/gestion/stats.html">
+    <meta property="og:type" content="website">
+
+    <meta property="og:article:author" content="Denis Weiss">
+    <meta property="og:article:tag"
+        content="CDI, docs, web, enseignement, outils, professeur-documentaliste, professeur documentaliste, statistiques">
+    <meta property="og:locale" content="fr_fr">
+    <meta property="og:image" content="img/ogIll.png">
+    <link href="./../css/loader.css" rel="stylesheet" type="text/css">
+    <link href="./../css/styleGestion.css" rel="stylesheet" type="text/css">
+    <style>
+        .maDate {
+            color: #fffbf5;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 700;
+            padding-bottom: .5em;
+        }
+
+        .fuso {
+            color: #fffbf5;
+            font-size: .8em;
+            font-weight: 700;
+            float: right;
+            opacity: .5;
+        }
+
+        .fleche {
+            max-width: 100%;
+        }
+
+        .text-leg {
+            font-size: 1em;
+            text-transform: uppercase;
+        }
+
+        .chiffre-leg {
+            font-size: 5em;
+        }
+
+        .chiffre-leg-1 {
+            padding-top: .5em;
+            font-size: 4em;
+            font-weight: 700;
+        }
+
+        .text-blanc {
+            color: whitesmoke;
+        }
+
+        .text-noir {
+            color: black;
+        }
+
+        .text-orange {
+            color: #eab92d;
+        }
+
+        .text-bleu {
+            color: #7098cf;
+        }
+
+        .text-amber {
+            color: #ffc107;
+        }
+
+        .text-gris {
+            color: #44a299;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .grid-plage {
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: 2fr 4fr 2fr;
+        }
+
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 320px;
+            max-width: 960px;
+            margin: 1em auto;
+        }
+
+        #container {
+            height: 450px;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #ebebeb;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table thead tr,
+        .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+
+        footer {
+            margin: 0 auto;
+            max-width: 960px;
+            width: 100%;
+            flex-shrink: 0;
+            color: lightgrey;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.5em;
+            text-align: center;
+            opacity: .6;
+        }
+
+        a {
+            color: #6cb8ff;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        a:active,
+        a:focus,
+        a:hover {
+            color: rgb(255, 146, 74);
+        }
+
+        a:link img,
+        a:visited img,
+        img {
+            border-style: none;
+        }
+
+        /*  Media Queries */
+        @media (min-width: 481px) {
+            .container header {
+                height: 4rem;
+            }
+
+            h1 {
+                font-size: 1.2em;
+            }
+
+            .sousTitre {
+                font-size: 0.8rem;
+                margin-top: -0.7em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1.4em;
+                line-height: .9;
+            }
+
+            footer {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container header {
+                height: 6rem;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .sousTitre {
+                font-size: 0.9em;
+                margin-top: -1.5em;
+            }
+
+            h2 {
+                font-size: 2.8em;
+            }
+
+            p {
+
+                font-size: 1.6em;
+                line-height: 1;
+            }
+
+            footer {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>CDIAct - Statistiques de fréquentation</h1>
+        </header>
+
+        <div id="loader" class="loader">
+            <div class="pl">
+                <div class="pl__outer-ring"></div>
+                <div class="pl__inner-ring"></div>
+                <div class="pl__track-cover"></div>
+                <div class="pl__ball">
+                    <div class="pl__ball-texture"></div>
+                    <div class="pl__ball-outer-shadow"></div>
+                    <div class="pl__ball-inner-shadow"></div>
+                    <div class="pl__ball-side-shadows"></div>
+                </div>
+            </div>
+            <div class="loaderTxt" id="textLoader">Veuillez patienter!</div>
+        </div>
+
+        <div id="cont">
+            <div class="encart">
+                <h2 class="text-center" id="titre">[Nom de l'établissement]</h2>
+                <div id="maDt" class="maDate">[date en clair]</div>
+                <div id="hms" class="horloge"></div>
+                <div id="fuso" class="fuso">[Fuseau local]</div>
+            </div>
+
+            <!--             <div id="debug" class="sauve text-blanc"></div> -->
+
+            <div class="space-100"></div>
+
+            <div id="retour" class="retour">Pas de données&nbsp;!</div>
+
+            <div id="sectionStats">
+
+                <h2 class="text-center">Plage de mesure</h2>
+                <div class="grid-plage">
+                    <div class="container-cal">
+                        <div class="calendrier">
+                            <div class="calendrier-corps">
+                                <span class="mois" id="moisIn"></span>
+                                <span class="jour" id="jourIn"></span>
+                                <span class="chiffre" id="chiffreIn"></span>
+                                <span class="annee" id="anneeIn"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flexCenter"><img src="../img/flechD.png" class="fleche" alt="flèche gauche droite">
+                    </div>
+
+                    <div class=" container-cal">
+                        <div class="calendrier">
+                            <div class="calendrier-corps">
+                                <span class="mois" id="moisOut"></span>
+                                <span class="jour" id="jourOut"></span>
+                                <span class="chiffre" id="chiffreOut"></span>
+                                <span class="annee" id="anneeOut"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-100"></div>
+
+                <h2 class="text-center mb-3">Nombre de passages</h2>
+
+                <div class="grid-2">
+                    <div class="text-center">
+                        <img src="../img/eleves.png" alt="nombre d'emprunteurs">
+                    </div>
+                    <div class="text-center">
+                        <img src="../img/icn/snail.png" alt="Nombre de passages">
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="text-center">
+                        <div class="text-leg">Emprunteurs</div>
+                        <div class="chiffre-leg text-orange" id="nbrEleve"></div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-leg">Passages</div>
+                        <div class="chiffre-leg text-bleu" id="nbrPass"></div>
+                    </div>
+                </div>
+
+                <div class="space-100"></div>
+
+                <div id="totPass" class="text-center">[Nombre de passages]</div>
+
+                <div class="space-100"></div>
+
+                <h2 class="text-center mb-3">Hit parade par jour</h2>
+                <div class="grid-3">
+                    <div class="img-thumbnail">
+                        <div><img src="./../img/moins.png" alt="somme" class="center-block " tool-pos="top"
+                                title="Nombre minimum de visite par jour">
+                        </div>
+                        <div class="text-center text-gris">mini</div>
+                        <div id="visMoins" class="text-center chiffre-leg-1 text-noir">[mini]</div>
+                    </div>
+
+                    <div class="img-thumbnail">
+                        <div><img src="./../img/moyenne.png" alt="somme" class="center-block" tool-pos="top"
+                                title="Nombre moyen de visite par jour">
+                        </div>
+                        <div class="text-center text-gris">moyenne</div>
+                        <div id="visMoy" class="text-center chiffre-leg-1 text-amber">[moyenne]</div>
+                    </div>
+
+                    <div class="img-thumbnail">
+                        <div><img src="./../img/plus.png" alt="somme" class="center-block" tool-pos="top"
+                                title="Nombre maximum de visite par jour">
+                        </div>
+                        <div class="text-center text-gris">maxi</div>
+                        <div id="visPlus" class="text-center chiffre-leg-1 text-bleu">[max]</div>
+                    </div>
+                </div>
+
+                <div class="space-100"></div>
+
+                <h2 class="text-center mb-3">Tous les passages</h2>
+                <figure class="highcharts-figure">
+                    <div id="contTous" class="img-thumbnaill"></div>
+                    <p class="highcharts-description">
+                        Passages pour chaque jour de l'année. Les espaces réprésentent les week-end ou les vacances.
+                    </p>
+                </figure>
+                <div class="space-100"></div>
+
+                <h2 class="text-center mb-3">Jours de la semaine</h2>
+
+                <figure class="highcharts-figure">
+                    <div id="jourSemaine" class="img-thumbnaill"></div>
+                </figure>
+
+
+                <div class="space-100"></div>
+
+                <h2 class="text-center mb-3">Temps de présence</h2>
+                <figure class="highcharts-figure">
+                    <div id="tempsPresence" class="img-thumbnail"></div>
+                </figure>
+
+                <div class="space-100"></div>
+
+                <h2 class="text-center mb-3">Nombre de passages par élève</h2>
+                <figure class="highcharts-figure">
+                    <div id="contPass" class="img-thumbnail"></div>
+                    <p class="highcharts-description">
+                        Hit parade des passages. Le point haut représente l'identifiant de l'élève
+                        le plus souvent venu.
+                    </p>
+                </figure>
+
+                <div class="space-50"></div>
+
+                <h2 class="text-center mb-3">Une, deux, trois fois...</h2>
+                <h3 id="ratioPass" class="text-center"></h3>
+
+                <figure class="highcharts-figure">
+                    <div id="repTition" class="img-thumbnail"></div>
+                    <p class="highcharts-description">
+                        Combien d'élèves passent une, deux, trois ou plus de 10 fois...
+                    </p>
+                </figure>
+
+                <div class="space-200"></div>
+
+                <h4 class="text-center">De nouveaux indicateurs sont en cours de développement.</h4>
+                <div class="space-100"></div>
+
+                <div id="dateTests" class="retours"></div>
+                <div id="presents" class="presents"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <hr class="hr-light">
+        Denis Weiss, février 2023. Distribué selon les termes de la licence Creative
+        Commons.<br> Attribution - Pas d’utilisation commerciale - Partage dans les mêmes conditions 4.0
+        International.<br>
+        <a href="https://emi.re/contact.html" target="_blank">Contact</a>
+    </footer>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/highcharts/highcharts.js"></script>
+    <script src="../js/highcharts/highcharts-more.js"></script>
+    <script src="../js/highcharts/modules/dumbbell.js"></script>
+    <script src="../js/highcharts/modules/lollipop.js"></script>
+    <script src="../js/highcharts/modules/exporting.js"></script>
+    <script src="../js/highcharts/modules/export-data.js"></script>
+    <script src="../js/highcharts/modules/accessibility.js"></script>
+    <script src="./../js/stats.js"></script>
+
+</body>
+
+</html>
