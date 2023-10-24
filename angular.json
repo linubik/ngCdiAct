@@ -36,7 +36,13 @@
             }
           },
           "options": {
-            "assets": [],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/original/",
+                "output": "/original/"
+              }
+            ],
             "index": "src/index.html",
             "main": "src/main.ts",
             "outputPath": "dist/demo",
