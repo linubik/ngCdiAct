@@ -14,7 +14,8 @@ import { SaisieComponent } from './component/saisie/saisie.component';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: SaisieComponent },
+      { path: '', component:AppComponent },
+      { path: 'saisie', component: SaisieComponent },
       { path: 'stats', component: StatsComponent },
     ])
   ],
