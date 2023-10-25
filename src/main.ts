@@ -1,16 +1,13 @@
-import 'zone.js/dist/zone';
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { bootstrapApplication } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-@Component({
-  selector: 'my-app',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './my-app.component.html'
-})
-export class App {
-  name = 'Angular';
-}
+import { AppModule } from './app/app.module';
 
-bootstrapApplication(App);
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+*/
